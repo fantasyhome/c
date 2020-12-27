@@ -1,0 +1,9 @@
+#include<stdio.h>
+#include<string.h>
+int main(void)
+{
+    printf("strcmp(\"c\",\"a\")is ");
+    printf("%d\n",strcmp("c","a"));
+    return 0;
+}
+//部分系统可能返回2

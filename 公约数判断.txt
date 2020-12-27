@@ -1,0 +1,27 @@
+#include<stdio.h>
+#include<stdbool.h>
+int main(void)
+{
+    unsigned long num;
+    unsigned long div;
+    bool isprime;
+    printf("请输入一个整数，或者输入字母退出\n");
+    while(scanf("%lu",&num)==1)
+    {
+    for(div=2,isprime=true;(div*div)<=num;div++)
+    {
+    if(num%div==0)
+    {
+    if((div*div)!=num)
+    printf("%lu可以被%lu和%lu整除\n",num,div,num/div);
+    else printf("%lu可以被%lu整除\n",num,div);
+    isprime=false;
+    }
+    }
+    if(isprime)
+    printf("%lu是素数\n",num);
+    printf("输入另一个整数或者输入字母退出\n");
+    }
+    printf("玩的开心");
+    return 0;
+}

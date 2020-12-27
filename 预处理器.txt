@@ -1,0 +1,13 @@
+#include<stdio.h>
+#define PSQR(x) printf("the square of "#x" is %d.\n",((x)*(x)))
+//#x为宏形参字符串
+int main(void)
+{
+    int y=5;
+    PSQR(y);
+    PSQR(2+4);
+/*如果没有((x)*(x)),预处理器只会传递'记号'
+PSQR(2+4)就成为2+4*2+4，而不是像函数一样
+传递2+4的值6*/
+    return 0;
+}

@@ -1,0 +1,19 @@
+#include<stdio.h>
+void why_me();
+int main()
+{
+    printf("the file is %s.\n",__FILE__);
+    printf("the date is %s.\n",__DATE__);
+    printf("the time is %s.\n",__TIME__);
+    printf("the version is %ld.\n",__STDC_VERSION__);
+    printf("this is line %d.\n",__LINE__);
+    printf("this function is %s.\n",__func__);
+//func为函数作用域，本质上看宏有文件作用域，因此func为预定义标识符
+    why_me();
+    return 0;
+}
+void why_me()
+{
+    printf("this function is %s\n",__func__);
+    printf("this is line %d.\n",__LINE__);
+}

@@ -1,0 +1,27 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define lim 30
+int main()
+{
+    char number[lim];
+    char * end;
+    long value;
+    puts("enter a number(empty line to quit):");
+    while(fgets(number,lim,stdin)&&number[0]!='\0')
+    {
+        value=strtol(number,&end,10);
+        printf("十进制输入，十进制输出：%1d,stoped at %s (%d)\n",value,end,*end);
+        value=strtol(number,&end,16);
+        printf("16:%1d,stopped at %s (%d)\n",value,end,*end);
+        puts("next number:");
+    }
+    printf("bye");
+    return 0;
+}
+/*strtol把字符串转换成long类型的值，
+第一个参数：待转换字符串的指针
+第二个参数：一个指针的地址，该指针被设置为
+标识输入数字结束字符的地址
+（输入10atom时，10进制下a的地址传给参数
+16进制下a视为一个有效数，t的地址传给参数）
+第三个参数：表示以什么进制写入数字

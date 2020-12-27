@@ -1,0 +1,19 @@
+#include<stdio.h>
+#define size 10
+#define par 72
+int main(void)
+{
+    int index,score[size];
+    int sum=0;
+    float average;
+    
+    printf("enter 10 golf score:");
+    for(index=0;index<size;index++)
+    {
+    scanf("%d",&score[index]);
+    printf("%5d",score[index]);
+    sum+=score[index];
+    }
+    printf("\nsum of scores=%d",sum);
+    return 0;
+}

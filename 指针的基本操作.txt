@@ -1,0 +1,26 @@
+#include<stdio.h>
+
+int main(void)
+{
+    int urn[5]={100,200,300,400,500};
+    int *ptr1,*ptr2,*ptr3;
+    ptr1=urn;
+    ptr2=&urn[2];
+    printf("pointer value,dereferenced pointer,pointer address:\n");
+    printf("ptr1=%p,*ptr1=%d,&ptr1=%p\n",ptr1,*ptr1,&ptr1);
+    //再次证明了指针的地址和指针的值不同
+    ptr3=ptr1+4;
+    printf("\nadding an int to a pointer:\n");
+    printf("ptr1+4=%p,*(ptr1+4)=%d\n",ptr1+4,*(ptr1+4));
+    ptr1++;
+    printf("\nvalues after ptr1++:\n");
+    printf("ptr1=%p,*ptr1=%d,&ptr1=%p\n",ptr1,*ptr1,&ptr1);
+    printf("\nsubtracting one pointer from another:\n");
+    printf("ptr2=%p,ptr1=%p,ptr2-ptr1=%td\n",ptr2,ptr1,ptr2-ptr1);
+    return 0;
+}
+/*指针变量的基本操作：赋值，解引用，
+取址，指针与整数相加/减，递增/减指针，
+指针求差
+比较：当做数组比较下标大小，前提指向相同
+类型的对象*/

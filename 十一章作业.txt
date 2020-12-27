@@ -1,0 +1,41 @@
+#include<stdio.h>
+#include<string.h>
+#include<ctype.h>
+#define answer "GRANT"
+#define size 50
+char * s_gets(char * st,int n);
+int main()
+{
+    char try[size];
+    puts("who is buried in Grant's tomb?");
+    s_gets(try,size);//把输入值赋给try
+    while(strcmp(try,answer)!=0)
+    {
+        puts("no,that's wrong,try again.");
+        s_gets(try,size);
+    }
+    puts("that's right");
+    return 0;
+}
+char * s_gets(char * st,int n)
+{
+    char * ret_val;
+    int i=0;
+    ret_val=fgets(st,n,stdin);
+    if(ret_val)//不为NULL则为真
+    {
+        while(st[i]!='\n'&&st[i]!='\0')
+            i++;//寻找换行符或结尾
+        if(st[i]=='\n')
+            st[i]='\0';//替换换行符
+        else
+            while(getchar()!='\n')
+                continue;//丢弃空字符后面的输入行
+    }
+    while(*ret_val)
+    {
+        *ret_val=toupper(*ret_val);
+        ret_val++;
+    }
+    return ret_val;
+}

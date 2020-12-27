@@ -1,0 +1,32 @@
+#include<stdio.h>
+//p302页指针与多维数组
+int main(void)
+{
+    int zippo[4][2]={{2,4},{6,8},{1,3},{5,7}};
+    printf("zippo=%p,zippo+1=%p\n",zippo,zippo+1);
+    printf("zippo[0]=%p,zippo[0]+1=%p\n",zippo[0],zippo[0]+1);
+    printf("*zippo=%p,*zippo+1=%p\n",*zippo,*zippo+1);
+    printf("zippo[0][0]=%d\n",zippo[0][0]);
+    printf("*zippo[0]=%d\n",*zippo[0]);
+    printf("**zippo=%d\n",**zippo);
+    printf("zippo[2][1]=%d\n",zippo[2][1]);
+    printf("*(*(zippo+2)+1)=%d\n",*(*(zippo+2)+1));
+    return 0;
+}
+/*
+最后一行：
+zippo：二维数组首元素的地址
+（每个元素都是内含俩个int类型元素的一维数组）
+zippo+2：二维数组的第三个元素（即一维数组）的地址
+*(zippo+2)：上一行的元素的首元素的地址
+*(zippo+2)+1:二维数组的第三个元素的第二个元素的地址
+*(*(zippo+2)+1):上一行的地址对应的值
+*/
+
+
+/*复合字面量：数组的常量
+int diva[2]={10,20}创建了一个数组
+(int [2]){10,20}创建了一个匿名数组
+必须即时使用
+（当常数一样赋值给指针或作参数传递）
+*/

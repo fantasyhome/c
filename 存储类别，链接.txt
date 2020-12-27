@@ -1,0 +1,33 @@
+#include<stdio.h>
+void trystat(void);
+extern int c;/*与下面不同，此处意味c
+实际定义在该程序别处，也行在别的文件中,
+因此删除下方printf前的//会报错*/
+int b=7;
+int main(void)
+{
+    extern int b;//可选的重复声明
+    int count;
+    for(count=1;count<=3;count++)
+    {
+        printf("here comes iteration %d:\n",count);
+        trystat();
+    }
+  //printf("%d",c);
+    printf("%d",b);//改成a不可执行
+    return 0;
+}
+int a=5;
+/*外部变量的作用域：从声明处到文件结尾。*/
+void trystat(void)
+{
+    int fade=1;
+    static int stay=1;
+    printf("fade=%d and stay=%d\n",fade++,stay++);
+}
+/*stay只在编译strstat()时被初始化一次，
+如未显式初始化静态变量，它们会被初始化为0。
+第一条是trystat()的一部分，
+第二条实际上不是。
+把这条声明放在trystat()函数中是为了告诉
+编译器只有trystat()函数才能看到该变量*/

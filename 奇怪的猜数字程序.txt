@@ -1,0 +1,17 @@
+#include<stdio.h>
+
+int main(void)
+{
+int guess=1;
+printf("从一到一百中选一个整数\n");
+printf("如果我猜对了，输入y，错了输入n\n");
+printf("你的数字是%d吗\n",guess);
+while(getchar()!='y')
+{
+printf("那是%d吗\n",++guess);
+while(getchar()!='\n')
+continue;
+}
+printf("我就知道是这个！");
+    return 0;
+}    

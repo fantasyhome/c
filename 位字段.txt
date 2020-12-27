@@ -1,0 +1,54 @@
+#include<stdio.h>
+#include<stdbool.h>
+#define solid 0
+#define dotted 1
+#define dashed 2
+#define blue 4
+#define green 2
+#define red 1
+#define black 0
+#define yellow (red|green)
+#define magenta (red|blue)
+#define cyan (green|blue)
+#define white (red|green|blue)
+const char * colors[8]={"black",
+"red","green","yellow","blue",
+"magenta","cyan","white"};
+
+struct box_props{
+    bool opaque:1;
+    unsigned int fill_color:3;
+    unsigned int : 4;
+    bool show_border : 1;
+    unsigned int border_color : 3;
+    unsigned int border_style : 2;
+    unsigned int : 2;
+};
+int main(void)
+{
+    struct box_props box={true,yellow,true,green,dashed};
+    printf("original box settings:\n");
+    show_settings(&box);
+    box.opaque=false;
+    box.fill_color=white;
+    box.border_color=magenta;
+    box.border_style=solid;
+    printf("\nmodified box settings:\n");
+    show_settings(&box);
+    return 0;
+}
+void show_settings(const struct box_props * pb)
+{
+    printf("box is %s.\n",pb->opaque==true?"opaque":"transparent");
+    printf("the fill color is %s.\n",colors[pb->fill_color]);
+    printf("border %s.\n",pb->show_border==true?"shown":"not shown");
+    printf("the border color is %s.\n",colors[pb->border_color]);
+    printf("the border style is");
+    switch(pb->border_style)
+    {
+    case solid : printf("solide.");break;
+    case dotted: printf("dottede.");break;
+    case dashed: printf("dashede");break;
+    default: printf("unknown type.");
+    }
+}

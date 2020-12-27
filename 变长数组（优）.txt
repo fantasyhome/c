@@ -1,0 +1,35 @@
+#include<stdio.h>
+#define R 3
+#define C 4
+int sum2d(int rows,int cols,int ar[rows][cols]);
+int main()
+{
+    int i,j;
+    int rs=3;
+    int cs=10;
+    int junk[R][C]={
+    {2,4,6,8},{3,5,7,9},{6,8,10,12}
+    };
+    int varr[rs][cs];//变长数组
+    for(i=0;i<rs;i++)
+        for(j=0;j<cs;j++)
+            varr[i][j]=i*j+j;
+    printf("3*5 array\n");
+    printf("sum of all elements=%d\n",sum2d(R,C,junk));
+    printf("3*10 vla\n");
+    printf("sum of all elements=%d\n",sum2d(rs,cs,varr));
+    return 0;
+}
+
+int sum2d(int rows,int cols,int ar[rows][cols])
+{
+    int r;
+    int c;
+    int tot=0;
+    for(r=0;r<rows;r++)
+        for(c=0;c<cols;c++)
+            tot+=ar[r][c];
+    return tot;
+}
+/*可以看到，带变长数组形参的函数既可处理
+传统数组，也可处理变长数组。*/

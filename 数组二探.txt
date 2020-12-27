@@ -1,0 +1,16 @@
+#include<stdio.h>
+
+int main(void)
+{
+    const int days[]={31,28,31,30,31,30,31,31,30,31};
+    //省略方括号中数字，编译器会自动匹配数组大小
+    //但这样察觉不到少了元素（仅10个月份）
+    //const创建为不可更改数组
+    int index;
+    for(index=0;index<sizeof days/sizeof days[0];index++)
+    //sizeof运算符给出其对象的大小（单位字节）
+    //days数组大小除以单个元素大小就是元素个数
+    printf("month %2d %2d days.\n",index+1,*(days+index));
+    //*(days+index)与days[index]相同
+    return 0;
+}

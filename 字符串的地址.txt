@@ -1,0 +1,16 @@
+#include<stdio.h>
+#define msg "i am special"
+int main()
+{
+    char ar[]=msg;
+    const char *pt=msg;
+//字符串字面量被视为const数据，应把指针声明为指向const数据的指针
+    printf("address of \"i am special\":%p\n","i am special");
+    printf("address ar:%p\n",ar);
+    printf("address pt:%p\n",pt);
+    printf("address of msg:%p\n",msg);
+    printf("address of \"i am special\":%p\n","i am special");
+    return 0;
+}
+//用数组表示字符串与用指针表示不同，
+//数组创建了一个额外地址来储存

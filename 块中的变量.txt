@@ -1,0 +1,29 @@
+#include<stdio.h>
+
+int main()
+{
+    int x=30;//原始x
+    printf("x in outer block:%d at %p\n",x,&x);
+    {
+        int x=77;//新x，隐藏了原始x
+        printf("x in inner block:%d at %p\n",x,&x);
+    }
+    printf("x in outer block:%d at %p\n",x,&x);
+    while(x++<33)
+    /*
+    可以看到测试条件影响外部x,对for循环也是一样。
+    */
+    {
+        int x=100;
+        x++;
+        printf("x in while loop:%d at %p\n",x,&x);
+    }
+    printf("x in outer block:%d at %p\n",x,&x);
+    return 0;
+}
+/*与自动变量不同，如果未初始化外部变量，
+它们会被自动初始化为0，自动变量是刚好在
+原内存位置的上一个值（不可测）。只能用常量
+表达式初始化文件作用域变量
+（sizeof视为常量），
+（可用已定义变量初始化自动变量）

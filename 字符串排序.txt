@@ -1,0 +1,48 @@
+#include<stdio.h>
+#include<string.h>
+#define size 81
+#define lim 20
+#define halt ""//空字符串停止输入
+void stsrt(char *strings[],int num);
+char * s_gets(char *st,int n);
+int main(void)
+{
+    char input[lim][size];
+    char *ptstr[lim];
+    int ct=0;//输入计数
+    int k;//输出计数
+    printf("input up to %d lines,and i will sort them.\n",lim);
+    printf("to stop,press the enter key at a line's start.\n");
+    while(ct<lim&&s_gets(input[ct],size)!=NULL&&input[ct][0]!='\0')
+    {
+        ptstr[ct]=input[ct];//设置指针指向字符串
+        ct++;
+    }
+    stsrt(ptstr,ct);
+    puts("\nhere's the sorted list:\n");
+    for(k=0;k<ct;k++)
+        puts(ptstr[k]);
+    return 0;
+}
+void stsrt(char *strings[],int num)
+{
+    char *temp;
+    int top,seek;
+    for(top=0;top<num-1;top++)
+        for(seek=top+1;seek<num;seek++)
+            if(strcmp(strings[top],strings[seek])>0)
+            {
+                temp=strings[top];
+                strings[top]=strings[seek];
+                strings[seek]=temp;
+            }
+}
+char * s_gets(char * st,int n)
+{
+    char line[80];
+    char * find;
+    fgets(line,80,stdin);
+    find=strchr(line,'\n');//查找换行符
+    if(find)
+    *find='\0';
+}

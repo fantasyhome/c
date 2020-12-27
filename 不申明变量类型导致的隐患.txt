@@ -1,0 +1,16 @@
+#include<stdio.h>
+int imax(int,int);
+int main(void)
+{
+    printf("the maximum of %d and %d is %d.\n",3,5,imax(3.0,5.0));
+    return 0;
+}
+int imax(n,m)
+int n,m;
+{
+return(n>m?n:m);
+}
+/*第二行没有申明变量类型时，
+编译器不会进行类型转换，
+再加上一些储存和调用的“栈”机制，
+使编译出错。*/

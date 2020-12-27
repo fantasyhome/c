@@ -1,0 +1,30 @@
+#include<stdio.h>
+
+int main()
+{
+    double rates[]={8.8,9.9};
+    const double * pd=rates;
+    /*
+    *pd=29.89;//不允许
+    pd[2]=222.22;//不允许
+    */
+    rates[0]=99.99;//允许，rates未被const限定
+    pd++;//允许，const限定只是不能更改它指向的值，
+    //但可更改指向对象
+    printf("%f\n",*pd);
+/*
+总结一下，前面的const保证了指针操作不改变
+其指向的原数据
+*/
+double * const pc=rates;
+//pc=&rates[2];//不允许，该指针不能指向别处
+*pc=92.99;//可以，更改指针所指向的值
+printf("%f",*pc);
+return 0;
+/*
+总结一下，后面的const保证了指针操作不改变
+指向的位置，
+另：const double * const pc =rates;
+可使指针既不能改指向的位置也不能改指向的值
+*/
+}

@@ -1,0 +1,27 @@
+#include<stdio.h>
+void loop(void)
+{
+    int i;
+    int a[10];
+    while(1)
+    {
+    int b=0;
+    printf("请输入十个整数");
+    for(i=0;i<10;++i)  
+        scanf("%d",&a[i]);
+    for(i=0;i<10;++i) 
+        {
+        if(a[i]==0) 
+        printf("have zero");
+        else b++;
+        }
+    if(b==10)
+        return;
+    }
+}
+int main()
+{
+    loop();
+    printf("done");
+    return 0;
+}

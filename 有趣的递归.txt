@@ -1,0 +1,18 @@
+#include<stdio.h>
+void up_and_dowm(int);
+int main(void)
+{
+    up_and_dowm(1);
+    return 0;
+}
+void up_and_dowm(int n)
+{
+    printf("level %d:n location %p\n",n,&n);//@1
+    if(n<4)
+        up_and_dowm(n+1);
+    printf("level %d:n location %p\n",n,&n);//@2
+}
+/*先是1234~@1和4~@2这样正常好理解的过程
+但要注意这里3~@1调用4~@1时，
+还有一个3~@2在外面，
+结束if测试后，再层层打印321~@2。*/

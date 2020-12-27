@@ -1,0 +1,22 @@
+#include<stdio.h>
+
+#include<conio.h>
+
+int main(void)
+{
+printf("Pressanykeytocontinue:");
+while(1)
+{
+if(!kbhit())
+printf("输入一个东西停止");
+else
+{
+char a;
+a=getchar();
+printf("你输入了%c",a);break;
+}
+}
+return 0;
+}
+
+

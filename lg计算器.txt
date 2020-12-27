@@ -1,0 +1,14 @@
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+    double a,b;
+    printf("输入lg（double）：");
+    while(1)
+    {
+    scanf("%lf",&a);
+    b=log10(a);
+    printf("lg（%lf）=%lf",a,b);
+    }
+    return 0;
+}

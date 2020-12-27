@@ -1,0 +1,16 @@
+#include<stdio.h>
+char *pr(char *str)
+{
+    char *pc;
+    pc=str;
+    while(*pc)
+        putchar(*pc++);//循环打印Ho直到！后面
+    do{
+        putchar(*--pc);//从！后面一直回到第一个
+    }while(pc-str);
+    return(pc);
+}
+int main()
+{
+pr("Ho Ho Ho!");
+}
